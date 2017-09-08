@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -7,12 +8,11 @@ import javax.swing.table.DefaultTableModel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Gabriel Alvarado
  */
-public class lugar extends Thread{
+public class lugar extends Thread {
 
     public String nombre;
     public String clima;
@@ -20,18 +20,19 @@ public class lugar extends Thread{
     public int cantidad;
     public String tipo;
     public String año;
-    public Tabla ventana = new Tabla(); 
-    
-    
+    public ArrayList<Persona> ListPersonas=new ArrayList();
+    public Tabla ventana = new Tabla();
+
     public static final long SerailVersionUID = 777L;
 
-    public lugar(String nombre, String clima, String extension, int cantidad, String tipo, String año) {
+    public lugar(String nombre, String clima, String extension, int cantidad, String tipo, String año,ArrayList persona) {
         this.nombre = nombre;
         this.clima = clima;
         this.extension = extension;
         this.cantidad = cantidad;
         this.tipo = tipo;
         this.año = año;
+        this.ListPersonas=persona;
     }
 
     public String getNombre() {
@@ -91,13 +92,25 @@ public class lugar extends Thread{
     public void run() {
         ventana.setVisible(true);
         ventana.table.setText(nombre);
-        JTable m= new JTable();
-        DefaultTableModel modelo = new DefaultTableModel();
-        
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
+        JTable m = new JTable();
+        Tabla y = new Tabla();
+        DefaultTableModel model = (DefaultTableModel) ventana.Table.getModel();
+        while (true) {
+            while(ventana.Table.getRowCount()>0){
+                model.removeRow(0);
+            }
+            for (Persona t : ListPersonas) {
+               
+                if (t.getLugar().equals(nombre)) {
+                    Object Fila[] ={t.getNombre(),t.getId(),t.getLugar(),t.getEstatura(),t.getProfesion()};
+                    model.addRow(Fila);
+                }
+                ventana.Table.setModel(model);
+            }
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+            }
         }
     }
-    
 }

@@ -99,10 +99,15 @@ public class Personas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Crear persona");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Volver a lugares");
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
         pack();
@@ -138,6 +143,10 @@ public class Personas extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
