@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class admiPersonas {
     private ArrayList<Personas> ListPersonas = new ArrayList();
-    private File archivo;
+    private File archivo=null;
 
     public admiPersonas(String path) {
         archivo=new File(path);

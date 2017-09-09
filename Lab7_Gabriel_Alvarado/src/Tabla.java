@@ -27,12 +27,12 @@ public class Tabla extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
+        Table_personas = new javax.swing.JTable();
         table = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Table.setModel(new javax.swing.table.DefaultTableModel(
+        Table_personas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -40,7 +40,7 @@ public class Tabla extends javax.swing.JFrame {
                 "Nombre", "ID", "Lugar", "Edad", "Estatura", "Profesion"
             }
         ));
-        jScrollPane1.setViewportView(Table);
+        jScrollPane1.setViewportView(Table_personas);
 
         table.setText("Registro de lugares");
 
@@ -105,7 +105,7 @@ public class Tabla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTable Table;
+    public static javax.swing.JTable Table_personas;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel table;
     // End of variables declaration//GEN-END:variables

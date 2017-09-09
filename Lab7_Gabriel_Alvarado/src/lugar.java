@@ -17,22 +17,33 @@ public class lugar extends Thread {
     public String nombre;
     public String clima;
     public String extension;
-    public int cantidad;
+    public String cantidad;
     public String tipo;
     public String año;
-    public ArrayList<Persona> ListPersonas=new ArrayList();
+    public ArrayList<Persona> ListPersonas = new ArrayList();
     public Tabla ventana = new Tabla();
 
     public static final long SerailVersionUID = 777L;
 
-    public lugar(String nombre, String clima, String extension, int cantidad, String tipo, String año,ArrayList persona) {
+    public lugar() {
+    }
+
+    public lugar(String nombre, String clima, String extension, String cantidad, String tipo, String año, ArrayList e) {
         this.nombre = nombre;
         this.clima = clima;
         this.extension = extension;
         this.cantidad = cantidad;
         this.tipo = tipo;
         this.año = año;
-        this.ListPersonas=persona;
+        this.ListPersonas = e;
+    }
+
+    public Tabla getVentana() {
+        return ventana;
+    }
+
+    public void setVentana(Tabla ventana) {
+        this.ventana = ventana;
     }
 
     public String getNombre() {
@@ -59,11 +70,11 @@ public class lugar extends Thread {
         this.extension = extension;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -94,19 +105,20 @@ public class lugar extends Thread {
         ventana.table.setText(nombre);
         JTable m = new JTable();
         Tabla y = new Tabla();
-        DefaultTableModel model = (DefaultTableModel) ventana.Table.getModel();
+        DefaultTableModel model = (DefaultTableModel) ventana.Table_personas.getModel();
         while (true) {
-            while(ventana.Table.getRowCount()>0){
+            while (ventana.Table_personas.getRowCount() > 0) {
                 model.removeRow(0);
             }
+            ventana.Table_personas.setModel(model);
             for (Persona t : ListPersonas) {
-               
+                System.out.println(t.getNombre());
                 if (t.getLugar().equals(nombre)) {
-                    Object Fila[] ={t.getNombre(),t.getId(),t.getLugar(),t.getEstatura(),t.getProfesion()};
+                    Object Fila[] = {t.getNombre(), t.getId(), t.getLugar(), t.getEstatura(), t.getProfesion()};
                     model.addRow(Fila);
                 }
-                ventana.Table.setModel(model);
             }
+            ventana.Table_personas.setModel(model);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
