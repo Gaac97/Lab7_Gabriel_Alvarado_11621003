@@ -107,6 +107,9 @@ public class lugar extends Thread {
         Tabla y = new Tabla();
         DefaultTableModel model = (DefaultTableModel) ventana.Table_personas.getModel();
         while (true) {
+            for (Persona t1 : ListPersonas) {
+                System.out.println(t1.getNombre());
+            }
             while (ventana.Table_personas.getRowCount() > 0) {
                 model.removeRow(0);
             }

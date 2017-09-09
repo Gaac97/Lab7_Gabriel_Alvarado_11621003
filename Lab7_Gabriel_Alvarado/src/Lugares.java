@@ -17,6 +17,9 @@ public class Lugares extends javax.swing.JFrame {
      */
     public Lugares() {
         initComponents();
+        for (Persona t1 : ListPersona) {
+            System.out.println(t1.getNombre());
+        }
     }
 
     /**
@@ -44,6 +47,7 @@ public class Lugares extends javax.swing.JFrame {
         p_profesion = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         l_lugar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -188,6 +192,9 @@ public class Lugares extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -359,6 +366,7 @@ public class Lugares extends javax.swing.JFrame {
         lugar l = new lugar();
         l.start();
 
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -388,6 +396,9 @@ public class Lugares extends javax.swing.JFrame {
         estatura = p_estatura.getText();
         profesion = p_profesion.getText();
         ListPersona.add(new Persona(nombre, id, lugar, edad, estatura, profesion));
+        for (Persona t2 : ListPersona) {
+            System.out.println(t2.getNombre());
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -449,6 +460,7 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JTextField l_año;
     private javax.swing.JTextField l_cantidad;
     private javax.swing.JTextField l_clima;
@@ -464,5 +476,5 @@ public class Lugares extends javax.swing.JFrame {
     private javax.swing.JTextField p_profesion;
     // End of variables declaration//GEN-END:variables
 ArrayList<Persona> ListPersona = new ArrayList();
-ArrayList<lugar> ListLugares = new ArrayList();
+    ArrayList<lugar> ListLugares = new ArrayList();
 }
